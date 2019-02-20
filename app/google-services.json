@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "745052342566",
+    "firebase_url": "https://foodrecipe-35b7c.firebaseio.com",
+    "project_id": "foodrecipe-35b7c",
+    "storage_bucket": "foodrecipe-35b7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745052342566:android:0318d3de3ee4d242",
+        "android_client_info": {
+          "package_name": "myapp.shiva.foodrecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745052342566-g065ii7qnnpbj1282uq3k9nigd8876s8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "myapp.shiva.foodrecipe",
+            "certificate_hash": "5ee82e8bce251d94e4d8414012130269072ec716"
+          }
+        },
+        {
+          "client_id": "745052342566-hiou6l8i79hu1p0vsarfgk1d0ma79qvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkCgFxSvZTQ8Sxv42kwyQWtDBWWRMBYys"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745052342566-hiou6l8i79hu1p0vsarfgk1d0ma79qvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

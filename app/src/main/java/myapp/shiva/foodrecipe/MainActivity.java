@@ -1,15 +1,17 @@
 package myapp.shiva.foodrecipe;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Switch;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 
-import myapp.shiva.foodrecipe.Fragments.AnswersListFragment;
-import myapp.shiva.foodrecipe.Fragments.QuestionsListFragment;
+import myapp.shiva.foodrecipe.fragments.QuestionsListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,36 +22,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
 
-        final Switch switchbutton=findViewById(R.id.switchbutton);
-        changeFragment("Questions");
-        switchbutton.setOnClickListener(new View.OnClickListener() {
+        Button signOut=findViewById(R.id.signOut);
+
+        signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(switchbutton.isChecked()){
-                        changeFragment("Answers");
-                    }else{
-                        changeFragment("Questions");
-                    }
-
-
-
+                Toast.makeText(MainActivity.this, "User Signed Out...",
+                        Toast.LENGTH_SHORT).show();
+                // Signing Out the user from Firebase and laso from Application
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginandSignUp.class);
+                startActivity(intent);
+                finish();
             }
         });
-    }
 
-    private void changeFragment(String name){
-        if(name.equals("Questions")){
-            android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            android.support.v4.app.Fragment fragment=new QuestionsListFragment();
-            fragmentTransaction.replace(R.id.viewlayout,fragment,null).commit();
-        }
-        else if(name.equals("Answers")){
-            android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            android.support.v4.app.Fragment fragment=new AnswersListFragment();
-            fragmentTransaction.replace(R.id.viewlayout,fragment,null).commit();
-        }
+        // Directly Inflating fragment over Constraint Layout.
+        android.support.v4.app.FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        android.support.v4.app.Fragment fragment=new QuestionsListFragment();
+        fragmentTransaction.replace(R.id.viewlayout,fragment,null).commit();
+
 
     }
 

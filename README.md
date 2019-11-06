@@ -8,3 +8,8 @@
       .recipe Integredients
       . Cooking Techniques
       
+
+
+Extras :
+ - Firebase Realtime Database
+ - Firebase User Authentication (Anonymous Email Account)
